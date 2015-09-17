@@ -18,12 +18,37 @@ PImage img;
 void setup() {
   size(320,240);
   // Crear una imagen
-  img = loadImage("caballo1.jpg");
+  img = loadImage("image1.jpg");
 }
 void draw() {
   background(255);
   // Dibujar la imagen
   image(img,100,0);
+}
+
+// ***************************************
+// * ANIMACIÓN CON SECUENCIA DE IMÁGENES *
+// ***************************************
+int numFrames = 3;  //Número de cuadros de la animación
+int frame = 0;
+PImage[] images = new PImage[numFrames];
+ 
+void setup()
+{
+  size(200, 200);
+  frameRate(30);
+ 
+  images[0]  = loadImage("image1.jpg");
+  images[1]  = loadImage("image2.jpg"); 
+  images[2]  = loadImage("image3.jpg");
+ 
+ 
+} 
+ 
+void draw() 
+{ 
+  frame = (frame+1) % numFrames;  //Para crear el ciclo
+  image(images[frame], 50, 50);
 }
 
 // *********************
